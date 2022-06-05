@@ -12,6 +12,10 @@
 ### Generating Bingo Cards
 - Given I have a Bingo card generator When I generate a Bingo card Then the generated card has 25 unique spaces And column $column only contains numbers between $lowerBound and $upperBound inclusive And the generated card has 1 FREE space in the middle.
 
+### Checking Bingo Cards
+- Given a player calls Bingo after all numbers on their card have been called When I check the card Then the player is the winner.
+- Given a player calls Bingo before all numbers on their card have been called When I check the card Then the player is not the winner.
+
 ## Execute
 
 Run the following command from the bingo directory

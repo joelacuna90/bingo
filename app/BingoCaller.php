@@ -21,4 +21,25 @@ class BingoCaller extends Model
 
         return $numberRand;        
     }
+
+    public static function isWinner(BingoCaller $caller, Card $card)
+    {
+        $result = [];
+        $getNumbersCard = $card->getNumbersCard();
+        foreach ($getNumbersCard as $number) {
+            if (is_null($number)) {
+                continue;            
+            }                 
+            if (!$caller->hasNumber($number)) {                
+                return false;
+            }            
+        }        
+        
+        return true;
+    }    
+
+    private function hasNumber($number): bool
+    {        
+        return in_array($number, $this->numbers);
+    }
 }
